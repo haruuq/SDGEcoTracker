@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="glossy_green_start">#76B852</color>
+    <color name="glossy_green_end">#347414</color>
+    <color name="panel_background">#E8F1E4</color>
+    <color name="border_green">#224411</color>
+    <color name="header_green">#1A330D</color>
+    <color name="summary_card_bg">#2E5D17</color>
+</resources>

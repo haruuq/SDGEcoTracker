@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A330D"
+    android:orientation="vertical"
+    android:padding="6dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/panel_background"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvUserSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sub_title"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Logout button -->
+            <LinearLayout
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="@color/white"
+                    android:contentDescription="Logout" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Navigation Tabs -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2D5A18"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/tabLogEntry"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/glossy_button"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/tab_log_entry"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/tabHistory"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/tab_history"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/tabAnalytics"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/tab_analytics"
+                    android:textColor="@color/white"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/tabAdmin"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/tab_admin"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- LOG ENTRY TAB -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <ScrollView
+                android:id="@+id/layoutLogEntry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/log_new_consumption"
+                        android:textColor="@color/header_green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <!-- Input fields -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal" android:layout_marginBottom="4dp">
+                                <TextView android:layout_width="70dp" android:layout_height="wrap_content" android:text="@string/category" android:textSize="12sp" android:textColor="@color/black" />
+                                <Spinner android:id="@+id/spCategory" android:layout_width="match_parent" android:layout_height="40dp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal" android:layout_marginBottom="4dp">
+                                <TextView android:layout_width="70dp" android:layout_height="wrap_content" android:text="@string/item" android:textSize="12sp" android:textColor="@color/black" />
+                                <EditText android:id="@+id/etItemName" android:layout_width="match_parent" android:layout_height="40dp" android:background="@android:drawable/editbox_background" android:padding="8dp" android:textSize="14sp" android:inputType="text" android:importantForAutofill="no" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal" android:layout_marginBottom="4dp">
+                                <TextView android:id="@+id/tvQuantityLabel" android:layout_width="70dp" android:layout_height="wrap_content" android:text="@string/quantity" android:textSize="12sp" android:textColor="@color/black" />
+                                <EditText android:id="@+id/etQuantity" android:layout_width="match_parent" android:layout_height="40dp" android:background="@android:drawable/editbox_background" android:padding="8dp" android:textSize="14sp" android:inputType="number" android:importantForAutofill="no" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal">
+                                <TextView android:layout_width="70dp" android:layout_height="wrap_content" android:text="@string/date" android:textSize="12sp" android:textColor="@color/black" />
+                                <EditText android:id="@+id/etDate" android:layout_width="match_parent" android:layout_height="40dp" android:background="@android:drawable/editbox_background" android:padding="8dp" android:textSize="14sp" android:focusable="false" android:clickable="true" android:drawableEnd="@android:drawable/ic_menu_my_calendar" android:importantForAutofill="no" android:inputType="none" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Summary card -->
+                        <LinearLayout
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/summary_card_background"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/todays_summary"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:drawableStartCompat="@android:drawable/presence_online"
+                                android:drawablePadding="4dp" />
+
+                            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="6dp" android:background="#66FFFFFF" />
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_agenda" app:tint="@color/white" android:contentDescription="@string/items_logged_label" />
+                                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:orientation="vertical">
+                                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/items_logged_label" android:textColor="@color/white" android:textSize="9sp" />
+                                    <TextView android:id="@+id/tvItemsCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal" android:gravity="center_vertical">
+                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_compass" app:tint="@color/white" android:contentDescription="@string/eco_score_label" />
+                                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:orientation="vertical">
+                                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/eco_score_label" android:textColor="@color/white" android:textSize="9sp" />
+                                    <TextView android:id="@+id/tvEcoScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFEB3B" android:textSize="16sp" android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Buttons -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+                        <Button android:id="@+id/btnAddEntry" android:layout_width="0dp" android:layout_height="45dp" android:layout_weight="1" android:background="@drawable/glossy_button" android:text="@string/add_entry" android:textColor="@color/white" android:textStyle="bold" />
+                        <Button android:id="@+id/btnCancel" android:layout_width="0dp" android:layout_height="45dp" android:layout_marginStart="10dp" android:layout_weight="1" android:text="@string/cancel" />
+                    </LinearLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/recent_consumption" android:textColor="@color/header_green" android:textSize="16sp" android:textStyle="bold" />
+                    <View android:layout_width="match_parent" android:layout_height="2dp" android:layout_marginTop="4dp" android:background="#2D5A18" />
+                    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvRecent" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="100dp" />
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- HISTORY TAB — grouped by day -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/layoutHistory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/consumption_history"
+                    android:textColor="@color/header_green"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="All past logs sorted by date"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- ANALYTICS TAB — chart + week compare -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <ScrollView
+                android:id="@+id/layoutAnalytics"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/user_analytics"
+                        android:textColor="@color/header_green"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Weekly comparison banner -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#2D5A18">
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📅 Weekly Comparison" android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/tvWeekCompare" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="—" android:textColor="#A8D878" android:textSize="13sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Line chart -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📈 Eco Score Over Time" android:textColor="@color/header_green" android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp" />
+                            <com.example.sdgecotracker.EcoChartView
+                                android:id="@+id/chartCanvas"
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Summary card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                            <TextView android:id="@+id/tvAnalyticsSummary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/loading_summary" android:textColor="@color/black" />
+                            <Button android:id="@+id/btnExportPdf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/glossy_button" android:text="@string/export_pdf" android:textColor="#FFFFFF" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- ADMIN TAB -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <ScrollView
+                android:id="@+id/layoutAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/community_impact"
+                        android:textColor="@color/header_green"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Community Stats card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                            <TextView android:id="@+id/tvAdminStats" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Loading..." android:textColor="@color/black" android:textSize="13sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Waste Category Bar Chart -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📊 Waste Category Distribution" android:textColor="@color/header_green" android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp" />
+                            <com.example.sdgecotracker.AdminChartView
+                                android:id="@+id/adminChartCanvas"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- User Management section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="👥 User Management"
+                        android:textColor="@color/header_green"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnAddUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/glossy_button"
+                        android:text="+ Add User"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#2D5A18" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvUserList"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:background="#F5F5F5"
+                        android:nestedScrollingEnabled="true" />
+                </LinearLayout>
+            </ScrollView>
+
+        </FrameLayout>
+
+        <!-- Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_background"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <LinearLayout android:id="@+id/btnEditFooter" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp" android:clickable="true" android:focusable="true">
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_edit" app:tint="@color/white" android:contentDescription="@string/edit_entry" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/edit_entry" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#44FFFFFF" />
+
+            <LinearLayout android:id="@+id/btnDeleteFooter" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp" android:clickable="true" android:focusable="true">
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_delete" app:tint="#FF5252" android:contentDescription="@string/delete_entry" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/delete_entry" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#44FFFFFF" />
+
+            <LinearLayout android:id="@+id/btnReportFooter" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:padding="8dp" android:clickable="true" android:focusable="true">
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_report_image" app:tint="@color/white" android:contentDescription="@string/view_reports" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/view_reports" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#2D5A18"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="7dp">
+
+    <TextView
+        android:id="@+id/tvDateHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="May 13, 2026"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDateAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avg Score: 0"
+        android:textColor="#A8D878"
+        android:textSize="12sp" />
+</LinearLayout>
